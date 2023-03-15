@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST)){
     // recoger los valores del formulario de registro
     $nombre = isset($_POST['nombres']) ? $_POST['nombres'] : false;
@@ -48,6 +49,9 @@ if(isset($_POST)){
         //insertar usuario en la tabla de la bbdd
         $guardar_usuario = true;
         
+    }else{
+        $_SESSION['errores'] = $errores;
+        header('Location: index.php');
     }
     
     
