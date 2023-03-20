@@ -1,8 +1,9 @@
 <?php require_once './includes/cabecera.php'; ?>
+<?php require_once './includes/lateral.php'; ?>
         
         <div id="contenedor">
             
-        <?php require_once './includes/lateral.php'; ?>;
+        
             
             
             
@@ -22,7 +23,7 @@
             </div>
             
             
-        </div <!-- fin del contenido -->>
+        </div <!-- fin del contenido -->
         
         
         

@@ -1,4 +1,4 @@
-<?php require_once 'includes/helpers.php'; ?>
+<?php require_once('helpers.php') ?>
 
 <!-- Barra lateral -->
             <aside id="sidebar" class="bloque">
@@ -16,15 +16,15 @@
                 </div>
                 
                 <div id="register" class="bloque">
-                    <?php if(isset($_SESSION['errores'])): ?>
-                        <?php var_dump($_SESSION['errores']); ?>
-                    <?php endif ;  ?>
+                <?php echo mostrarErrores($_SESSION['errores'], 'nombre'); ?>
                     <h3>Registrate</h3>
                     <form action="registro.php" method="POST">
                         
                         <label for="nombres">Nombres</label>
                         <input type="text" name="nombres"/>
-                        <?php echo mostrarError($_SESSION['errores']['nombre'], 'nombre'); ?>
+                           
+
+                        
                         <label for="apellidos">Apellidos</label>
                         <input type="text" name="apellidos"/>
                         
