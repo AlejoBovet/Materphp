@@ -1,6 +1,12 @@
 <?php
-session_start();
+
+
 if(isset($_POST)){
+
+    require_once 'includes/conexion.php';
+    
+    session_start();
+
     // recoger los valores del formulario de registro
     $nombre = isset($_POST['nombres']) ? $_POST['nombres'] : false;
     $apellido = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
@@ -48,16 +54,36 @@ if(isset($_POST)){
     if(count($errores) == 0){
         //insertar usuario en la tabla de la bbdd
         $guardar_usuario = true;
-        
+
+        //cifrar la contraseña
+        //$password_segura = password_hash(variable,tipo de cifrado, 'cost' veces que cifra la contraseña)
+        $password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
+
+        //var_dump($password_segura);
+        //var_dump($password); 
+        //verificar que la contraseña cifrada coincida con el original
+        //password_verify(variuable , variable cifrada) --> funcion para verificar
+        //var_dump( password_verify($password,$password_segura));
+        //die();
+
+        // insertar usuario en la tabla de  la BBDD
+
+        $sql = "INSERT INTO usuarios  VALUES (null,'$nombre','$apellido','$email','$password_segura', CURDATE())";
+        $guardar = mysqli_query($db, $sql);
+
+        if($guardar){
+            $_SESSION['completado'] = "el registro  se ha completado con exito";
+        }else{
+            $_SESSION['errores']['general']= 'Fallo el ususario al guardar !!!';
+        }
+
     }else{
         $_SESSION['errores'] = $errores;
         header('Location: index.php');
     }
-    
-    
-    
-    
 }
+
+header('Location: index.php');
 
 
 
