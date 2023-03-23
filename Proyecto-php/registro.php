@@ -5,13 +5,18 @@ if(isset($_POST)){
 
     require_once 'includes/conexion.php';
     
-    session_start();
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    
 
     // recoger los valores del formulario de registro
-    $nombre = isset($_POST['nombres']) ? $_POST['nombres'] : false;
-    $apellido = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+
+    //la funcion mysqli_real_escape_string --> interpreta todo lo que se le entrege como STRING 
+    $nombre = isset($_POST['nombres']) ? mysqli_real_escape_string($db,$_POST['nombres']) : false;
+    $apellido = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
+    $password = isset($_POST['password']) ?  mysqli_real_escape_string($db,$_POST['password']) : false;
     
     //Array de errores
     $errores = array();
