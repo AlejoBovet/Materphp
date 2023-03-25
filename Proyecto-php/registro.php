@@ -15,7 +15,7 @@ if(isset($_POST)){
     //la funcion mysqli_real_escape_string --> interpreta todo lo que se le entrege como STRING 
     $nombre = isset($_POST['nombres']) ? mysqli_real_escape_string($db,$_POST['nombres']) : false;
     $apellido = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
-    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;//funcion trim para guardar sin espacios
     $password = isset($_POST['password']) ?  mysqli_real_escape_string($db,$_POST['password']) : false;
     
     //Array de errores

@@ -2,6 +2,14 @@
 
 <!-- Barra lateral -->
             <aside id="sidebar" class="bloque">
+
+                <!-- bloque de pop up secion iniciada -->
+                <?php if(isset($_SESSION['usuario'])):?>
+                <div id="usuario-loguado " class="bloque">
+                    <h3>Bienvenido <?=$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos'];?></h3>
+                </div>
+                <?php endif; ?>  
+
                 <div id="login">
                     <h3>Identificate</h3>
                     <form action="login.php" method="POST">
