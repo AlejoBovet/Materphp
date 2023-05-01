@@ -7,10 +7,23 @@
                 <?php if(isset($_SESSION['usuario'])):?>
                 <div id="usuario-loguado " class="bloque">
                     <h3>Bienvenido <?=$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos'];?></h3>
+                    <!-- Botones -->
+                    <a href="cerrar.php" class="boton boton-verde">Crear entradas</a>
+                    <a href="cerrar.php" class="boton">Crear categoria</a>
+                    <a href="cerrar.php" class="boton boton-naranja">Mis datos</a>
+                    <a href="cerrar.php" class="boton boton-rojo">Cerrar sesion</a>
+
                 </div>
                 <?php endif; ?>  
+                
+                <!-- bloque de pop up secion cerrada -->
+                <?php if(isset($_SESSION['error_login'])):?>
+                    <div class="alerta alerta-error">
+                        <?= $_SESSION['error_login']; ?>
+                    </div>
+                <?php endif; ?>  
 
-                <div id="login">
+                <div id="login" class="bloque">
                     <h3>Identificate</h3>
                     <form action="login.php" method="POST">
                         <label for="email">Email</label>
@@ -24,8 +37,8 @@
                 </div>
                 
                 <div id="register" class="bloque">
-                <?php echo mostrarErrores($_SESSION['errores'], 'nombre'); ?>
                     <h3>Registrate</h3>
+                    
                     <?php if(isset($_SESSION['completado'])): ?>
                         <div class="alerta alerta-exito">
                             <?=$_SESSION['completado']?>
