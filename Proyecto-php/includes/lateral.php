@@ -1,4 +1,4 @@
-<?php require_once('helpers.php') ?>
+
 
 <!-- Barra lateral -->
             <aside id="sidebar" class="bloque">
@@ -22,6 +22,8 @@
                         <?= $_SESSION['error_login']; ?>
                     </div>
                 <?php endif; ?>  
+
+                <?php if(!isset($_SESSION['usuario'])):?>
 
                 <div id="login" class="bloque">
                     <h3>Identificate</h3>
@@ -74,4 +76,5 @@
                     </form>
                     <?php borrarErrores();?>
                 </div>
+                <?php endif; ?>
             </aside>
