@@ -30,7 +30,7 @@
                         <li><a href="categoria.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a></li>
                     <?php 
                         endwhile; 
-                        endif;
+                        endif; 
                     ?>
                     <li><a href="index.php">Sobre mi</a></li>
                     <li><a href="index.php">contacto</a></li>
