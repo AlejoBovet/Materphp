@@ -10,7 +10,7 @@
                     <!-- Botones -->
                     <a href="crear-entradas.php" class="boton boton-verde">Crear entradas</a>
                     <a href="crear-categoria.php" class="boton">Crear categoria</a>
-                    <a href="cerrar.php" class="boton boton-naranja">Mis datos</a>
+                    <a href="mis-datos.php" class="boton boton-naranja">Mis datos</a>
                     <a href="cerrar.php" class="boton boton-rojo">Cerrar sesion</a>
 
                 </div>
@@ -54,7 +54,7 @@
                         
                         <label for="nombres">Nombres</label>
                         <input type="text" name="nombres"/>
-                        <?php echo isset($_SESSION['errores']) ? mostrarErrores($_SESSION['errores'],'nombres') : ''; ?>       
+                            
 
                         
                         <label for="apellidos">Apellidos</label>

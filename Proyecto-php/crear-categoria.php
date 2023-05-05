@@ -11,13 +11,12 @@
         Añade nuevas categorias 
     </p>
     
-    <form action="guardar-categoria.php" method="post">
+    <form action="guardar-categoria.php" method="POST">
 
         <label for="nombre">Nombre de la categoria</label>
         <input type="text" name="nombre" />
-        <label for nomnbre> Nombre si voy acon calista</label>
         <input type="submit" value="Guardar" />
-        <input type="submit"  value= "guardas" >
+        
     </form>
 
 </div>

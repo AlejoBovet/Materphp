@@ -36,6 +36,7 @@ if(isset($_POST)){
 
     }else{
         $_SESSION['errores_entrada'] = $errores;
+        header('Location: crear-entradas.php');
 
     };
 

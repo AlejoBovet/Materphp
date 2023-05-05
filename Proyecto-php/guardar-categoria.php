@@ -13,22 +13,26 @@ if (isset($_POST)){
     //validar datos antes de guardarlos en la base de datos
     //validar campo aire
 
-    if(!empy($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
+   
+/* if(!empy($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
         $nombre_validado = true;
-    
+
+
     }else{
-        $novedad_validado = falce;
+        $nombre_validado = false;
         $errors['nombre'] = "El nombre no es valido";
-    }
+} */
+ 
+if(count($errors) == 0){
 
-    if(count($errors) == 0){
-        $sql = "INSERT INTO categorias VALUES(NULL, '$nombre');";
-        $guardar = mysqli_query($db, $sql);
-    }
+    $sql = "INSERT INTO categorias VALUES(NULL, '$nombre')";
+$guardar = mysqli_query($db, $sql);
+    
+      
+}
+ 
 
-
-
+   
 
 }
-
-header("Location: index.php"); 
+header('Location: index.php');   

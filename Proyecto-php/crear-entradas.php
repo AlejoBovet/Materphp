@@ -15,9 +15,11 @@
 
         <label for="titulo">Nombre de la categoria</label>
         <input type="text" name="titulo" />
+        <?php echo isset($_SESSION['errores_entrada']) ? mostrarErrores($_SESSION['errores_entrada'],'titulo') : ''; ?>  
 
         <label for="descripcion"> descripcion</label>
         <textarea type="text" name="descripcion" ></textarea>
+        <?php echo isset($_SESSION['errores_entrada']) ? mostrarErrores($_SESSION['errores_entrada'],'descripcion') : ''; ?>  
 
         <label for="categoria">Categoria</label>
         <select name="categoria">
@@ -35,9 +37,12 @@
         ?>
 
         </select>
+        <?php echo isset($_SESSION['errores_entrada']) ? mostrarErrores($_SESSION['errores_entrada'],'categoria') : ''; ?>  
 
         <input type="submit"  value= "guardas" >
     </form>
+
+    <?php borrarErrores(); ?>
 
 </div>
 <!-- fin del contenido -->
